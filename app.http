@@ -1,0 +1,28 @@
+GET http://localhost:7000/todos/
+
+###
+
+POST http://localhost:7000/todos/
+Content-Type: application/json
+
+{
+    "id": 4,
+    "title": " Learn CSS ",
+    "description":"CSS (Cascading Style Sheets) is a styling language used to control the presentation and layout of web pages."
+}
+
+###
+
+PUT http://localhost:7000/todos/1/
+Content-Type: application/json
+
+
+{    
+    "title":" Learn ReactJS"
+
+}
+
+###
+
+
+DELETE http://localhost:7000/todos/3
