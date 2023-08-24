@@ -1,26 +1,19 @@
 # Todo Application
 
-Given an `app.js` file and an empty database file `todoApplication.db`.
+Given an `app.js` file and an empty database file `todo.db`.
 
-Create a table with the name `todo` with the following columns,
+Create a table with the name `todos` with the following columns,
 
 **Todo Table**
 
 | Column   | Type    |
 | -------- | ------- |
 | id       | INTEGER |
-| todo     | TEXT    |
-| priority | TEXT    |
-| status   | TEXT    |
+| title     | TEXT    |
+| description | TEXT    |
 
-and write APIs to perform operations on the table `todo`,
 
-<MultiLineNote>
-  
-  - Replace the spaces in URL with `%20`.
-  - Possible values for `priority` are `HIGH`, `MEDIUM`, and `LOW`.
-  - Possible values for `status` are `TO DO`, `IN PROGRESS`, and `DONE`.
-</MultiLineNote>
+and write APIs to perform operations on the table `todos`,
 
 ### API 1
 
@@ -32,11 +25,11 @@ and write APIs to perform operations on the table `todo`,
 
   - **Sample API**
     ```
-    /todos/?status=TO%20DO
+    /todos
     ```
   - **Description**:
 
-    Returns a list of all todos whose status is 'TO DO'
+    Returns a list of all todos.
 
   - **Response**
 
@@ -44,86 +37,12 @@ and write APIs to perform operations on the table `todo`,
     [
       {
         id: 1,
-        todo: "Watch Movie",
-        priority: "LOW",
-        status: "TO DO"
+        title: "Learn Python",
+        description: "Python is a versatile and readable high-level programming language used for web development, data analysis, AI, and more.",
       },
       ...
     ]
     ```
-
-- **Scenario 2**
-
-  - **Sample API**
-    ```
-    /todos/?priority=HIGH
-    ```
-  - **Description**:
-
-    Returns a list of all todos whose priority is 'HIGH'
-
-  - **Response**
-
-    ```
-    [
-      {
-        id: 2,
-        todo: "Learn Node JS",
-        priority: "HIGH",
-        status: "IN PROGRESS"
-      },
-      ...
-    ]
-    ```
-
-- **Scenario 3**
-
-  - **Sample API**
-    ```
-    /todos/?priority=HIGH&status=IN%20PROGRESS
-    ```
-  - **Description**:
-
-    Returns a list of all todos whose priority is 'HIGH' and status is 'IN PROGRESS'
-
-  - **Response**
-
-    ```
-    [
-      {
-        id: 2,
-        todo: "Learn Node JS",
-        priority: "HIGH",
-        status: "IN PROGRESS"
-      },
-      ...
-    ]
-    ```
-
-- **Scenario 4**
-
-  - **Sample API**
-    ```
-    /todos/?search_q=Play
-    ```
-  - **Description**:
-
-    Returns a list of all todos whose todo contains 'Play' text
-
-  - **Response**
-
-    ```
-    [
-      {
-        id: 4,
-        todo: "Play volleyball",
-        priority: "MEDIUM",
-        status: "DONE"
-      },
-      ...
-    ]
-    ```
-
 ### API 2
 
 #### Path: `/todos/:todoId/`
@@ -139,10 +58,9 @@ Returns a specific todo based on the todo ID
 ```
 {
   id: 2,
-  todo: "Learn JavaScript",
-  priority: "HIGH",
-  status: "DONE"
-}
+  title: "Learn Python",
+  description: "Python is a versatile and readable high-level programming language used for web development, data analysis, AI, and more.IGH",
+  }
 ```
 
 ### API 3
@@ -159,11 +77,10 @@ Create a todo in the todo table,
 
 ```
 {
-  "id": 10,
-  "todo": "Finalize event theme",
-  "priority": "LOW",
-  "status": "TO DO"
-}
+  id: 2,
+  title: "Learn Python",
+  description: "Python is a versatile and readable high-level programming language used for web development, data analysis, AI, and more.IGH",
+  }
 ```
 
 #### Response
@@ -183,39 +100,10 @@ Todo Successfully Added
 Updates the details of a specific todo based on the todo ID
 
 - **Scenario 1**
-
   - **Request**
     ```
     {
-      "status": "DONE"
-    }
-    ```
-  - **Response**
-
-    ```
-    Status Updated
-    ```
-
-- **Scenario 2**
-
-  - **Request**
-    ```
-    {
-      "priority": "HIGH"
-    }
-    ```
-  - **Response**
-
-    ```
-    Priority Updated
-    ```
-
-- **Scenario 3**
-
-  - **Request**
-    ```
-    {
-      "todo": "Some task"
+      "title": "Learn React Js"
     }
     ```
   - **Response**
